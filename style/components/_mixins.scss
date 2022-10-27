@@ -1,0 +1,47 @@
+@use "variables" as v;
+
+@mixin flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin flex($var, $x) {
+    display: flex;
+    align-items: center;
+    justify-content: $var;
+    gap: $x;
+}
+
+@mixin flex-col($align, $y) {
+    display: flex;
+    flex-direction: column;
+    align-items: $align;
+    gap: $y;
+}
+
+@mixin flex-center($x) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $x;
+}
+
+@mixin button($y, $x) {
+    font-family: v.$font;
+    font-style: normal;
+    font-weight: 639;
+    font-size: 24px;
+    line-height: 146.47%;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    padding: $y $x;
+    background: v.$bg-color;
+    border-radius: 82.834px;
+}
+
+@mixin font-size($desktop, $mobile, $screen) {
+    $add-size: $desktop - $mobile;
+    $add-mox-size: $add-size + $add-size * 0.7;
+    font-size: calc(#{$mobile + px} + #{$add-mox-size} * ((100vw - 320px) / #{$screen}));
+}
